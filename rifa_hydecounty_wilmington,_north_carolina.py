@@ -26,10 +26,6 @@ import rasterio
 # import contextily as ctx
 # !pip install
 
-import geopandas as gpd
-import matplotlib.pyplot as plt
-from shapely.geometry import Point
-
 # !pip install osmnx # install the osmnx library
 import osmnx as ox # import the library and alias it as 'ox' for easier use
 place_name = "Wilmington, North Carolina, USA"
@@ -189,11 +185,208 @@ print(flooded_data)
 
 print(Wilmington_drive_node.columns)
 
+import matplotlib.pyplot as plt
+import geopandas as gpd
+import rasterio
+import numpy as np
+from rasterio.plot import show
+from matplotlib.colors import ListedColormap
+
+# Ensure there are no NaN or invalid coordinates in the dataset
+Wilmington_drive_node = Wilmington_drive_node.dropna(subset=['x', 'y'])
+
+# Define the elevation thresholds for classification
+flooded_threshold = 5  # Elevation <= 5 meters are flooded
+prone_threshold = 12   # Elevation between 5 and 12 meters are prone to flooding
+
+# Function to classify nodes based on elevation
+def classify_node_by_elevation(elevation):
+    if np.isnan(elevation):
+        return 'unknown'
+    elif elevation <= flooded_threshold:
+        return 'flooded'
+    elif flooded_threshold < elevation <= prone_threshold:
+        return 'prone'
+    else:
+        return 'safe'
+
+# Apply classification to nodes based on their elevation
+Wilmington_drive_node['flood_status'] = Wilmington_drive_node['elevation'].apply(classify_node_by_elevation)
+
+# Assign colors to nodes based on flood classification
+node_color_map = {
+    'flooded': 'blue',
+    'prone': 'green',
+    'safe': 'brown',
+    'unknown': 'gray'
+}
+Wilmington_drive_node['color'] = Wilmington_drive_node['flood_status'].map(node_color_map)
+
+# Function to classify raster data (TIFF) based on the same thresholds
+def classify_raster_data(raster, flooded_threshold, prone_threshold):
+    classified = np.zeros_like(raster)
+    classified[np.isnan(raster)] = np.nan  # Preserve NaN in raster
+    classified[raster <= flooded_threshold] = 1  # Flooded
+    classified[(raster > flooded_threshold) & (raster <= prone_threshold)] = 2  # Prone
+    classified[raster > prone_threshold] = 3  # Safe
+    return classified
+
+# Plotting function with TIFF background and node data overlay
+def plot_nodes_with_tiff_background(tiff_file):
+    with rasterio.open(tiff_file) as src:
+        elevation_data = src.read(1)
+
+        # Classify the raster data
+        classified_raster = classify_raster_data(elevation_data, flooded_threshold, prone_threshold)
+
+        # Create a custom colormap for the raster data
+        cmap = ListedColormap(['blue', 'green', 'brown'])
+
+        fig, ax = plt.subplots(figsize=(12, 12))
+
+        # Plot the classified raster as the background
+        show(classified_raster, ax=ax, cmap=cmap, transform=src.transform, alpha=0.6)
+
+        # Plot the road network (background)
+        Wilmingto_drive_edge.plot(ax=ax, color='black', linewidth=0.5, alpha=0.5, label='Road Network')
+
+        # Plot the nodes color-coded by flood status
+        for status, color in node_color_map.items():
+            subset = Wilmington_drive_node[Wilmingto_drive_node['flood_status'] == status]
+            if not subset.empty:
+                subset.plot(ax=ax, color=color, markersize=20, alpha=0.8, label=status)
+
+        # Ensure proper aspect ratio for plotting
+        ax.set_aspect('equal', adjustable='box')
+
+        # Add title, labels, and legend
+        plt.title("Node Flood Status Classification with Elevation Background")
+        plt.xlabel("Longitude")
+        plt.ylabel("Latitude")
+
+        # Create custom legend handles
+        handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=10, label=status)
+                   for status, color in node_color_map.items()]
+        ax.legend(handles=handles, title="Flood Status", loc='upper right')
+
+        # Show the plot
+        plt.show()
+
+# Call the function to plot with the TIFF background
+tiff_file = 'USGS_13_n35w078_20151130.tif'
+plot_nodes_with_tiff_background(tiff_file)
+
+import folium
+import rasterio
+import geopandas as gpd
+import numpy as np
+from rasterio import features
+from rasterio.plot import show
+from matplotlib.colors import ListedColormap
+import matplotlib.pyplot as plt
+import os
+
+# Ensure there are no NaN or invalid coordinates in the dataset
+Wilmington_drive_node = Wilmington_drive_node.dropna(subset=['x', 'y'])
+
+# Define the elevation thresholds for classification
+flooded_threshold = 5  # Nodes at or below sea level
+prone_threshold = 12  # Nodes between 5 and 12 meters are prone to flooding
+
+# Classify nodes based on elevation
+def classify_node_by_elevation(elevation):
+    if np.isnan(elevation):
+        return 'unknown'  # Handle NaN values
+    elif elevation <= flooded_threshold:
+        return 'flooded'
+    elif flooded_threshold < elevation <= prone_threshold:
+        return 'prone'
+    else:
+        return 'safe'
+
+# Apply classification to the nodes
+Wilmington_drive_node['flood_status'] = Wilmington_drive_node['elevation'].apply(classify_node_by_elevation)
+
+# Assign colors to the nodes based on classification
+node_color_map = {
+    'flooded': 'blue',
+    'prone': 'yellow',
+    'safe': 'green',
+    'unknown': 'gray'  # Optional color for nodes with unknown elevation
+}
+Wilmington_drive_node['color'] = Wilmington_drive_node['flood_status'].map(node_color_map)
+
+# Function to classify the raster data based on the same elevation thresholds
+def classify_raster_data(raster, flooded_threshold, prone_threshold):
+    classified = np.zeros_like(raster)
+    classified[np.isnan(raster)] = np.nan
+    classified[raster <= flooded_threshold] = 1
+    classified[(raster > flooded_threshold) & (raster <= prone_threshold)] = 2
+    classified[raster > prone_threshold] = 3
+    return classified
+
+# Generate a temporary file to store the raster classification as an image for Folium
+def generate_raster_image(tiff_file):
+    with rasterio.open(tiff_file) as src:
+        elevation_data = src.read(1)
+
+        # Classify the raster data
+        classified_raster = classify_raster_data(elevation_data, flooded_threshold, prone_threshold)
+
+        # Create a custom colormap for the raster data
+        cmap = ListedColormap(['blue', 'yellow', 'green'])
+
+        # Save classified raster as image
+        fig, ax = plt.subplots(figsize=(12, 12))
+        show(classified_raster, ax=ax, cmap=cmap, transform=src.transform, alpha=0.6)
+
+        temp_image_path = 'classified_raster.png'
+        fig.savefig(temp_image_path, bbox_inches='tight', pad_inches=0)
+        plt.close(fig)
+
+        return temp_image_path, src.transform
+
+# Plotting function with interactive Folium map
+def plot_nodes_with_folium(tiff_file):
+    temp_image_path, transform = generate_raster_image(tiff_file)
+
+    # Initialize the Folium map centered around the nodes
+    m = folium.Map(location=[Wilmington_drive_node.geometry.y.mean(), Wilmington_drive_node.geometry.x.mean()], zoom_start=12)
+
+    # Add the raster image overlay
+    bounds = [[transform[5], transform[2]], [transform[5] + transform[4], transform[2] + transform[0]]]
+    folium.raster_layers.ImageOverlay(temp_image_path, bounds=bounds, opacity=1).add_to(m)
+
+    # Add road network as a layer
+    folium.GeoJson(Wilmington_drive_edge).add_to(m)
+
+    # Add nodes with their respective colors
+    for _, row in Wilmington_drive_node.iterrows():
+        folium.CircleMarker(
+            location=[row.geometry.y, row.geometry.x],
+            radius=5,
+            color=row['color'],
+            fill=True,
+            fill_color=row['color'],
+            fill_opacity=0.8,
+            popup=row['flood_status']
+        ).add_to(m)
+
+    return m
+
+# Call the function to plot with the interactive Folium map
+tiff_file = 'USGS_13_n35w078_20151130.tif'
+interactive_map = plot_nodes_with_folium(tiff_file)
+
+# Save and display the map
+interactive_map.save('interactive_flood_map.html')
+interactive_map
+
 import pandas as pd
 
 # Load the data
-# san_drive_edge = pd.read_csv('san_drive_edge.csv')  # already loaded
-# san_drive_node = pd.read_csv('san_drive_node.csv')  # already loaded
+# Wilmington_drive_edge = pd.read_csv('Wilmington_drive_edge.csv')  # already loaded
+# Wilmington_drive_node = pd.read_csv('Wilmington_drive_node.csv')  # already loaded
 
 # Check column names in both DataFrames
 print("Wilmington_drive_node columns:", Wilmington_drive_node.columns)

@@ -8,20 +8,21 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 
 + Installation of Dependencies:
 -- Installs necessary libraries including GDAL, rasterio, osmnx, mapclassify, folium, and matplotlib.
+  
 
 + Loading and Plotting Road Network:
 -- Loads the road network for Wilmington using OpenStreetMap data through the osmnx library.
 -- Visualizes the network with nodes and edges.
 -- Elevation and Flood Risk Analysis:
 
-+ Adds elevation data to the road network nodes using a USGS raster file.
++ Adds elevation data to the road network nodes using the Copernicus Global 30-m DEM.
 -- Classifies nodes based on their elevation into three categories: flooded, prone, and safe.
 -- Assigns colors to nodes based on their flood risk status.
 -- Visualization:
 
 + Plots the classified nodes over the road network.
 -- Integrates TIFF elevation data as a background for enhanced visualization.
--- Provides an interactive map using folium to explore the flood risk classification in a web-based format.
+-- Provides an interactive map using folium to explore flood risk classifications in a web-based format.
 -- Exporting Results:
 
 + Saves the interactive map as an HTML file for easy sharing and exploration.

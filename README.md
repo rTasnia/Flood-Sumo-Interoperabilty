@@ -16,12 +16,11 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 -- Elevation and Flood Risk Analysis:
 
 + Adds elevation data to the road network nodes using the Copernicus Global 30-m DEM.
--- Classifies road segments based on node elevation into three categories:
--- Flooded (below a threshold of 2 meters),
+-- Classifies road segments based on node elevation into three categories:Flooded (below a threshold of 2 meters),
 Prone (elevation between 2 and 12 meters), and
 Safe (above 12 meters).
 Color-codes nodes and road segments to easily visualize flood risk.
--- Extracts specific road segments based on u, v values and their associated osmids.
+Extracts specific road segments based on u, v values and their associated osmids.
 
 + Plots the classified nodes over the road network.
 -- Integrates TIFF elevation data as a background for enhanced visualization.

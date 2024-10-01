@@ -15,7 +15,7 @@ Link: https://storymaps.arcgis.com/stories/fcd5cba6104645349f59e504042bacd6
 
 Downloading the Data: On the ASF DAAC Vertex platform, I entered my location details to search for and download HAND data in TIFF format. This data was used in my project for analyzing flood-prone areas.
 
-Download link: https://asf-daac.maps.arcgis.com/apps/mapviewer/index.html?webmap=6b82a2e4ccd343d5ba73dc04d386e4ee
+Data Download link: https://asf-daac.maps.arcgis.com/apps/mapviewer/index.html?webmap=6b82a2e4ccd343d5ba73dc04d386e4ee
 
 ### Flood impact visualization
 The primary script provides tools for analyzing road networks in Wilmington, North Carolina, with a focus on assessing flood risk based on elevation data. The components include:

@@ -13,6 +13,7 @@ Setting Location: Navigate the interactive maps available on StoryMap to focus o
 Link: https://storymaps.arcgis.com/stories/fcd5cba6104645349f59e504042bacd6
 
 Downloading the Data: On the ASF DAAC Vertex platform, I entered my location details to search for and download HAND data in TIFF format. This data was used in my project for analyzing flood-prone areas.
+
 Download link: https://asf-daac.maps.arcgis.com/apps/mapviewer/index.html?webmap=6b82a2e4ccd343d5ba73dc04d386e4ee
 
 ### Flood impact visualization

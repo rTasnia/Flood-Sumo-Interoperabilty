@@ -1,6 +1,6 @@
 # Flood-Sumo-interoperability
 
-##Script 1
+## Part 1
 ## Flood Risk Zones Analysis
 
 The goal of this project is to automate the integration of flood information in traffic simulation models (towards digital twin interoperability of the flood and transport network). 
@@ -46,7 +46,7 @@ Extracts specific road segments based on u, v values and their associated osmids
 The second set of scripts export the flooded OSM ids as CSVs, which are then read into SUMO traffic simulator for modeling appropriate lane closures.
 
 
-##Script 2
+## Part 2
 ## SUMO Simulation with Flooded Lanes
 
 

@@ -8,7 +8,8 @@ The goal of this project is to automate the integration of flood information in 
 
 Accessing the StoryMap: I started by visiting the ArcGIS StoryMap page, which provided detailed insights and resources on flood mapping using HAND data.
 
-Setting Location: I navigated the interactive maps available on the StoryMap to focus on my region of interest. By setting the location, I could view relevant data and ensure I was downloading the correct dataset for my specific area.
+Setting Location: Navigate the interactive maps available on StoryMap to focus on the region of interest. By setting the location, one can view relevant data and ensure downloading the correct dataset for the specific area.
+
 Link: https://storymaps.arcgis.com/stories/fcd5cba6104645349f59e504042bacd6
 
 Downloading the Data: On the ASF DAAC Vertex platform, I entered my location details to search for and download HAND data in TIFF format. This data was used in my project for analyzing flood-prone areas.

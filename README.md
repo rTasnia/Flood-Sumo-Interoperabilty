@@ -10,7 +10,8 @@ The goal of this project is to automate the integration of flood information in 
 |------------|-------------------|---------------------|
 | Rifa Tasnia  | North Carolina Agricultural and Technical State University | tasnia1642@gmail.com |
 | Venktesh Pandey | North Carolina Agricultural and Technical State University | vpandey@ncat.edu |
-
+## License
+[License](LICENSE)
 
 ### Instructions for download Height Above Nearest Drainage (Hand) data
 

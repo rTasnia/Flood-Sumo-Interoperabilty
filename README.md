@@ -5,8 +5,12 @@
 
 The goal of this project is to automate the integration of flood information in traffic simulation models (towards digital twin interoperability of the flood and transport network). 
 ## Contributors
-| Name | Affiliation | Email |
-| ... | ... | ... |
+
+| Name       | Affiliation       | Email               |
+|------------|-------------------|---------------------|
+| Rifa Tasnia  | North Carolina Agricultural and Technical State University | tasnia1642@gmail.com |
+| Jane Smith | North Carolina Agricultural and Technical State University | vpandey@ncat.edu |
+
 
 ### Instructions for download Height Above Nearest Drainage (Hand) data
 

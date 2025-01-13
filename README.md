@@ -12,7 +12,7 @@ The goal of this project is to automate the integration of flood information in 
 | Venktesh Pandey | North Carolina Agricultural and Technical State University | vpandey@ncat.edu |
 ## License
 [License](LICENSE)
-
+We are open to collaborate and further improvement.
 ### Instructions for download Height Above Nearest Drainage (Hand) data
 
 Accessing the StoryMap: I started by visiting the ArcGIS StoryMap page, which provided detailed insights and resources on flood mapping using HAND data.

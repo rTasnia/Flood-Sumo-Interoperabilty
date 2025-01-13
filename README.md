@@ -61,10 +61,10 @@ The second set of scripts export the flooded OSM ids as CSVs, which are then rea
 The Python script is designed to simulate vehicle rerouting in SUMO (Simulation of Urban MObility) by closing specific lanes based on flood risks. The script reads a CSV file containing OSM (OpenStreetMap) IDs of road segments that are at risk of flooding, closes those lanes during the simulation, and reroutes vehicles to available adjacent lanes.
 
 ### Features:
-Dynamic Lane Closure: Lanes corresponding to flooded OSM IDs are closed after a specified number of steps.
-Vehicle Rerouting: Vehicles on closed lanes are rerouted to adjacent lanes (if available).
-Trip Information Parsing: Trip data before and after lane closures is collected and saved into CSV files for further analysis.
-Error Handling: The script checks for the presence of necessary files (SUMO configuration and CSV) and handles potential errors gracefully.
+- Dynamic Lane Closure: Lanes corresponding to flooded OSM IDs are closed after a specified number of steps.
+- Vehicle Rerouting: Vehicles on closed lanes are rerouted to adjacent lanes (if available).
+- Trip Information Parsing: Trip data before and after lane closures is collected and saved into CSV files for further analysis.
+- Error Handling: The script checks for the presence of necessary files (SUMO configuration and CSV) and handles potential errors gracefully.
 
 ### Usage:
 Ensure that the SUMO_HOME environment variable is set correctly.

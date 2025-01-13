@@ -4,6 +4,9 @@
 ## Flood Risk Zones Analysis
 
 The goal of this project is to automate the integration of flood information in traffic simulation models (towards digital twin interoperability of the flood and transport network). 
+## Contributors
+| Name | Affiliation | Email |
+| ... | ... | ... |
 
 ### Instructions for download Height Above Nearest Drainage (Hand) data
 

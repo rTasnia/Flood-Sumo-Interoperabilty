@@ -158,9 +158,10 @@ def run():
     before_closure_output_path = os.path.join(os.getcwd(), 'tripinfo_before_closure.csv')
     before_closure_df.to_csv(before_closure_output_path, index=False)
     print(f"Trip information before lane closure saved to {before_closure_output_path}")
-
+    
+    
     traci.close()  # Close the simulation
-    sys.stdout.flush()
+    #sys.stdout.flush()
 
 if __name__ == "__main__":
     options = get_options()
@@ -189,9 +190,10 @@ if __name__ == "__main__":
                      "--statistic-output", "vehStatistic.xml"])
         print("SUMO started successfully!")
         run()
-
         # Parse tripinfo.xml after simulation ends
         parse_tripinfo("tripinfo.xml", os.path.join(os.getcwd(), 'tripinfo_after_closure.csv'))
+        print(f"Trip information after lane closure saved to {'tripinfo_after_closure.csv'}")
+    
 
     except Exception as e:
         print(f"An error occurred: {e}")

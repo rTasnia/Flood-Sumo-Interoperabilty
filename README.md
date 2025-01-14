@@ -3,7 +3,8 @@
 
 ## Flood Risk Zones Analysis
 
-The goal of this project is to automate the integration of flood information in traffic simulation models (towards digital twin interoperability of the flood and transport network). 
+Flooding significantly impacts transportation infrastructure, yet research on how flood levels affect road networks, especially during dynamic flooding events, is limited. Smart cities hold the potential to leverage digital data on travel demand, infrastructure, and water levels to improve flood management and address social inequities (especially since vulnerable populations such as people without cars are more at risk during flooding events). However, traditional traffic simulation models miss out on key details such as terrain, landscape types, and elevation, hindering accurate assessments of infrastructure interdependencies during flooding. Past studies highlight the necessity of integrated urban planning to manage interdependencies effectively. Our research focuses on modeling the interdependencies between water and transportation infrastructures, assessing flood risks and their impacts on infrastructure. We develop an interoperable digital twin framework that combines road networks with rising water level simulations and encourages rerouting under flash floods to assess flood impacts, focusing on Hyde County, NC (rural area) and Wilmington, NC (urban area). Our findings indicate that (a) open-source tools can capture the impacts of rising sea levels in identifying submerged roads, which show up as transverse or longitudinal lane closure in traffic simulators, enabling dynamic rerouting decisions, and (b) interoperable flood and water infrastructure models can enable prompt identification of at-risk roads and mitigate flash flooding events. Our findings can help facilitate better disaster preparedness and response strategies.
+. 
 ## Contributors
 
 | Name       | Affiliation       | Email               |

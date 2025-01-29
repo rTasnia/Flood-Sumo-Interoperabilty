@@ -1,0 +1,50 @@
+Global distance/toll factors: 0.000000 0.000000
+Class 1 distance/toll factors: 0.000000 0.000000
+Read 145708.000000 trips for class 1 (145757.400000 expected)
+6231 nodes, 14860 arcs, and 291 zones
+File read and memory allocated.
+Forward and reverse star lists generated.
+Warning: Creating 180 artifical arcs to ensure strong connectivity.
+Finalizing network setup
+Finalized network setup
+Creating initial bushes
+Initializing Algorithm B
+Initialized flows
+Read matrix 0
+Creating batch 0
+Created batch 0
+Initialization done in 5.159 s.
+Iteration 1: gap 0.472701856087932, obj 676633969.815193, time 0.360, 570 shifts
+Iteration 2: gap 0.195780317455829, obj 620144709.234134, time 0.546, 730 shifts
+Iteration 3: gap 0.086814872953762, obj 599527796.664277, time 0.765, 893 shifts
+Iteration 4: gap 0.023115468901630, obj 589442766.486781, time 0.955, 1060 shifts
+Iteration 5: gap 0.008554827082342, obj 585833026.330864, time 1.207, 1318 shifts
+Iteration 6: gap 0.004149825648525, obj 584336681.213601, time 1.433, 1621 shifts
+Iteration 7: gap 0.002602155737514, obj 583840547.761637, time 1.619, 1869 shifts
+Iteration 8: gap 0.001329867098260, obj 583430168.252733, time 1.809, 2178 shifts
+Iteration 9: gap 0.000663695790846, obj 583167861.145022, time 1.992, 2539 shifts
+Iteration 10: gap 0.000295707537557, obj 583043670.883372, time 2.156, 2947 shifts
+Iteration 11: gap 0.000172980964219, obj 582983338.098912, time 2.332, 3461 shifts
+Iteration 12: gap 0.000105266084196, obj 582947162.393912, time 2.500, 3959 shifts
+Iteration 13: gap 0.000070515580257, obj 582931774.632899, time 2.668, 4469 shifts
+Iteration 14: gap 0.000053590809622, obj 582923522.901371, time 2.851, 5024 shifts
+Iteration 15: gap 0.000041271945768, obj 582921422.205394, time 3.000, 5431 shifts
+Iteration 16: gap 0.000030001351428, obj 582919297.388234, time 3.179, 5876 shifts
+Iteration 17: gap 0.000039135063554, obj 582918080.508456, time 3.349, 6343 shifts
+Iteration 18: gap 0.000025174430924, obj 582917609.947902, time 3.487, 6634 shifts
+Iteration 19: gap 0.000026891652081, obj 582917007.913422, time 3.727, 7310 shifts
+Iteration 20: gap 0.000022915864298, obj 582916730.88304, time 3.916, 7724 shifts
+Iteration 21: gap 0.000022340962057, obj 582916329.83383, time 4.122, 8295 shifts
+Iteration 22: gap 0.000023617653268, obj 582916216.831725, time 4.271, 8582 shifts
+Iteration 23: gap 0.000019634058946, obj 582916093.91691, time 4.437, 8913 shifts
+Iteration 24: gap 0.000016930675106, obj 582915942.978333, time 4.587, 9227 shifts
+Iteration 25: gap 0.000017225387754, obj 582915610.186292, time 4.773, 9748 shifts
+Iteration 26: gap 0.000016353986891, obj 582915543.788179, time 4.908, 10076 shifts
+Iteration 27: gap 0.000014600156663, obj 582915430.896731, time 5.127, 10653 shifts
+Iteration 28: gap 0.000016326603620, obj 582915396.316479, time 5.236, 10837 shifts
+Iteration 29: gap 0.000013740417782, obj 582915336.337654, time 5.366, 11097 shifts
+Iteration 30: gap 0.000014891542930, obj 582915251.279044, time 5.521, 11429 shifts
+Iteration 31: gap 0.000011139308391, obj 582915159.256117, time 5.716, 11889 shifts
+Iteration 32: gap 0.000011028472270, obj 582915072.532758, time 5.945, 12453 shifts
+Iteration 33: gap 0.000009960098774, obj 582915013.792276, time 6.153, 12966 shifts
+Aggregate TSTT: 1185332577.665023

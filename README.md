@@ -2,6 +2,7 @@
 
 
 ## Flood Risk Zones Analysis
+### Introduction
 
 Flooding significantly impacts transportation infrastructure, yet research on how flood levels affect road networks, especially during dynamic flooding events, is limited. Smart cities hold the potential to leverage digital data on travel demand, infrastructure, and water levels to improve flood management and address social inequities (especially since vulnerable populations such as people without cars are more at risk during flooding events). However, traditional traffic simulation models miss out on key details such as terrain, landscape types, and elevation, hindering accurate assessments of infrastructure interdependencies during flooding. Past studies highlight the necessity of integrated urban planning to manage interdependencies effectively. Our research focuses on modeling the interdependencies between water and transportation infrastructures, assessing flood risks and their impacts on infrastructure. We develop an interoperable digital twin framework that combines road networks with rising water level simulations and encourages rerouting under flash floods to assess flood impacts, focusing on Hyde County, NC (rural area) and Wilmington, NC (urban area). Our findings indicate that (a) open-source tools can capture the impacts of rising sea levels in identifying submerged roads, which show up as transverse or longitudinal lane closure in traffic simulators, enabling dynamic rerouting decisions, and (b) interoperable flood and water infrastructure models can enable prompt identification of at-risk roads and mitigate flash flooding events. Our findings can help facilitate better disaster preparedness and response strategies.
 . 
@@ -13,10 +14,9 @@ Flooding significantly impacts transportation infrastructure, yet research on ho
 | Venktesh Pandey | North Carolina Agricultural and Technical State University | vpandey@ncat.edu |
 ## License
 [License](LICENSE)
-We are open to collaborate and further improvement.
 
 ## Part 1
-### Instructions for download Height Above Nearest Drainage (Hand) data
+### Instructions for download part 1:Height Above Nearest Drainage (Hand) data
 
 Accessing the StoryMap: I started by visiting the ArcGIS StoryMap page, which provided detailed insights and resources on flood mapping using HAND data.
 
@@ -51,6 +51,22 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 -- Exporting Results:
 
 + Saves the interactive map as an HTML file for easy sharing and exploration.
+
+## Installation and Requirements
+Ensure the necessary libraries are installed by running:
+osm2gmns==0.7.5
+osmnx==1.9.1
+geopandas==0.14.3
+pandas==2.2.1
+shapely==2.0.3
+rasterio==1.3.9
+numpy==1.26.4
+ipywidgets==8.1.5
+ipython==8.18.1
+grid2demand==0.3.9
+folium==0.16.0
+
+  ### Instructions for download part 2: data
 
 ### Export flooded OSM ids in SUMO
 The second set of scripts export the flooded OSM ids as CSVs, which are then read into SUMO traffic simulator for modeling appropriate lane closures.

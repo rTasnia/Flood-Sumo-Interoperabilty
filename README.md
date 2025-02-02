@@ -16,7 +16,7 @@ Flooding significantly impacts transportation infrastructure, yet research on ho
 [License](LICENSE)
 
 ## Part 1
-### Instructions for download part 1:Height Above Nearest Drainage (Hand) data
+### Instructions for download part 1: Height Above Nearest Drainage (Hand) data
 
 Accessing the StoryMap: I started by visiting the ArcGIS StoryMap page, which provided detailed insights and resources on flood mapping using HAND data.
 
@@ -31,8 +31,9 @@ Data Download link: https://asf-daac.maps.arcgis.com/apps/mapviewer/index.html?w
 ### Flood impact visualization
 The primary script provides tools for analyzing road networks in Wilmington, North Carolina, with a focus on assessing flood risk based on elevation data. The components include:
 
-+ Installation of Dependencies:
--- Installs necessary libraries including GDAL, rasterio, osmnx, mapclassify, folium, and matplotlib.
+### Installation of Dependencies:
+To run the scripts, install the required Python packages:
+--- GDAL, rasterio, osmnx, mapclassify, folium, and matplotlib.
   
 + Loading and Plotting Road Network:
 -- Loads the road network for Wilmington using OpenStreetMap data through the osmnx library.
@@ -64,6 +65,9 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 
 This repository contains scripts and datasets used for extracting road network data, modeling travel demand, and generating TNTP trip and network files with adjustments based on flood risk. The analysis integrates multiple geospatial and transportation modeling tools, including OSM2GMNS, GRID2DEMAND, and TNTP file generation scripts.
 
+### Dependencies
+Run the command `pip install -r requirements.txt`.
+
 ## Road Network Data Extraction and Analysis
 
 + Extracts road network data using osm2gmns.
@@ -73,7 +77,7 @@ This repository contains scripts and datasets used for extracting road network d
 + Saves processed data in UTF-8 encoded CSV files.
 
 ## Automated Grid-Based Travel Demand Modeling and Zone Analysis
-
+File name: `Generate Trips, net file.ipynb`.
 + Uses GRID2DEMAND (version 0.3.9) for transportation demand modeling.
 + Generates Traffic Analysis Zones (TAZs) based on network partitioning.
 + Synchronizes geometries between nodes, POIs, and zones for consistency.
@@ -103,8 +107,6 @@ File name: `Wilmington_Visualization.ipynb`.
 + Used a color gradient (Green-Yellow-Red) to indicate congestion levels.
 + Generates and saves visualizations for different flood scenarios.
 
-  ### Dependencies
-Run the command `pip install -r requirements.txt`.
 
 ### Export flooded OSM ids in SUMO
 The second set of scripts export the flooded OSM ids as CSVs, which are then read into SUMO traffic simulator for modeling appropriate lane closures.

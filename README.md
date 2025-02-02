@@ -52,8 +52,6 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 
 + Saves the interactive map as an HTML file for easy sharing and exploration.
 
-## Installation and Requirements
-Run the command `pip install -r requirements.txt`.
 
 
   ### Instructions for download part 2: Network Data
@@ -94,6 +92,19 @@ File name: `Generate Trips, net file.ipynb`.
 + Modifies network file capacity based on flood risk factors.
 + Handles multiple parameter combinations for batch processing.
 + Outputs files with unique names based on parameters for easy scenario analysis.
+
+## Flow-to-Capacity Ratio (FCR) Visualization
+File name: `Wilmington_Visualization.ipynb`.
+
++ Loads flow data from text files and capacity data from network files.
++ Computes Flow-to-Capacity Ratio (FCR) for each link in the road network.
++ Caps FCR values at 5 and applies a normalized color scale.
++ Converts data into a GeoDataFrame for geospatial visualization.
++ Used a color gradient (Green-Yellow-Red) to indicate congestion levels.
++ Generates and saves visualizations for different flood scenarios.
+
+  ### Dependencies
+Run the command `pip install -r requirements.txt`.
 
 ### Export flooded OSM ids in SUMO
 The second set of scripts export the flooded OSM ids as CSVs, which are then read into SUMO traffic simulator for modeling appropriate lane closures.

@@ -53,20 +53,13 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 + Saves the interactive map as an HTML file for easy sharing and exploration.
 
 ## Installation and Requirements
-Ensure the necessary libraries are installed by running:
-osm2gmns==0.7.5
-osmnx==1.9.1
-geopandas==0.14.3
-pandas==2.2.1
-shapely==2.0.3
-rasterio==1.3.9
-numpy==1.26.4
-ipywidgets==8.1.5
-ipython==8.18.1
-grid2demand==0.3.9
-folium==0.16.0
 
-  ### Instructions for download part 2: data
+(`pip install -r requirements.txt')
+
+
+  ### Instructions for download part 2: Network Data
+
+  https://www.openstreetmap.org/#map=10/35.3560/-76.1874&layers=TG
 
 ### Export flooded OSM ids in SUMO
 The second set of scripts export the flooded OSM ids as CSVs, which are then read into SUMO traffic simulator for modeling appropriate lane closures.

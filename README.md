@@ -69,40 +69,28 @@ This repository contains scripts and datasets used for extracting road network d
 ## Road Network Data Extraction and Analysis
 
 + Extracts road network data using osm2gmns.
---- Processes link, node, and POI datasets and converts them into GeoDataFrames.
---- Calculates road attributes (lanes, type, speed, travel time, width).
++ Processes link, node, and POI datasets and converts them into GeoDataFrames.
++ Calculates road attributes (lanes, type, speed, travel time, width).
++ Integrates elevation data from a DEM to compute road grades.
++ Saves processed data in UTF-8 encoded CSV files.
 
-Integrates elevation data from a DEM to compute road grades.
+## Automated Grid-Based Travel Demand Modeling and Zone Analysis
 
-Saves processed data in UTF-8 encoded CSV files.
++ Uses GRID2DEMAND (version 0.3.9) for transportation demand modeling.
++ Generates Traffic Analysis Zones (TAZs) based on network partitioning.
++ Synchronizes geometries between nodes, POIs, and zones for consistency.
++ Computes POI trip rates, production, and attraction estimates per node.
++ Generates a zone-to-zone distance matrix and applies a gravity model.
++ Outputs demand tables and zone distance matrices as CSV files.
++ Implements Haversine formula to find the closest node to a zone centroid.
 
-4.1.2 Automated Grid-Based Travel Demand Modeling and Zone Analysis
+## Automated TNTP Trip and Network File Generation with Flood Risk Adjustments
 
-Uses GRID2DEMAND (version 0.3.9) for transportation demand modeling.
-
-Generates Traffic Analysis Zones (TAZs) based on network partitioning.
-
-Synchronizes geometries between nodes, POIs, and zones for consistency.
-
-Computes POI trip rates, production, and attraction estimates per node.
-
-Generates a zone-to-zone distance matrix and applies a gravity model.
-
-Outputs demand tables and zone distance matrices as CSV files.
-
-Implements Haversine formula to find the closest node to a zone centroid.
-
-4.1.3 Automated TNTP Trip and Network File Generation with Flood Risk Adjustments
-
-Generates TNTP format trip and network files based on demand and flood risk.
-
-Adjusts demand using a reduction factor and writes the adjusted demand in TNTP format.
-
-Modifies network file capacity based on flood risk factors.
-
-Handles multiple parameter combinations for batch processing.
-
-Outputs files with unique names based on parameters for easy scenario analysis.
++ Generates TNTP format trip and network files based on demand and flood risk.
++ Adjusts demand using a reduction factor and writes the adjusted demand in TNTP format.
++ Modifies network file capacity based on flood risk factors.
++ Handles multiple parameter combinations for batch processing.
++ Outputs files with unique names based on parameters for easy scenario analysis.
 
 ### Export flooded OSM ids in SUMO
 The second set of scripts export the flooded OSM ids as CSVs, which are then read into SUMO traffic simulator for modeling appropriate lane closures.
@@ -110,8 +98,6 @@ The second set of scripts export the flooded OSM ids as CSVs, which are then rea
 
 ## Part 2
 ## SUMO Simulation with Flooded Lanes
-
-
 The Python script is designed to simulate vehicle rerouting in SUMO (Simulation of Urban MObility) by closing specific lanes based on flood risks. The script reads a CSV file containing OSM (OpenStreetMap) IDs of road segments that are at risk of flooding, closes those lanes during the simulation, and reroutes vehicles to available adjacent lanes.
 
 ### Features:

@@ -53,8 +53,7 @@ The primary script provides tools for analyzing road networks in Wilmington, Nor
 + Saves the interactive map as an HTML file for easy sharing and exploration.
 
 ## Installation and Requirements
-
-(`pip install -r requirements.txt')
+Run the command `pip install -r requirements.txt`.
 
 
   ### Instructions for download part 2: Network Data
